@@ -13,7 +13,6 @@ import etable.application.mesa.EstadoMesaServiceImpl;
 import etable.application.mesa.MesaServiceImpl;
 import etable.domain.mesa.model.EstadoMesa;
 import etable.domain.mesa.model.Mesa;
-import etable.domain.user.model.User;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
