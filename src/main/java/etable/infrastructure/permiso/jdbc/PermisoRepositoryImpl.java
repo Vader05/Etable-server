@@ -1,6 +1,7 @@
 package etable.infrastructure.permiso.jdbc;
 
 import java.util.List;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,12 @@ import etable.domain.permiso.model.Permiso;
 import etable.domain.permiso.repository.PermisoRepository;
 import etable.web.constants.querys.Query;
 
+
+/**
+ * 
+ * @author Kevin Rodrigo
+ *
+ */
 @Component
 public class PermisoRepositoryImpl implements PermisoRepository {
 
