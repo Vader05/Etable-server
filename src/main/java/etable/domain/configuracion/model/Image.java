@@ -33,7 +33,7 @@ public class Image {
 		if (this.name != null && this.imagen != null) {
 			String path = "src/../../eTable-web/src/assets/logo-emp/";
 			String pathName = "/assets/logo-emp/" + this.name;
-			String imageByte = new String(imagen.substring(imagen.indexOf(",") + 1));
+			String imageByte = (imagen.substring(imagen.indexOf(",") + 1));
 			File filePath = new File(path, this.name);
 			try(FileOutputStream fos=new FileOutputStream(filePath.getPath())) {
 		        fos.write(decodeImage(imageByte));
@@ -49,6 +49,6 @@ public class Image {
 	}
 	
 	public  byte[] decodeImage(String imageByte) {
-		return Base64.getDecoder().decode(new String(imageByte).getBytes());
+		return Base64.getDecoder().decode((imageByte).getBytes());
 	}
 }

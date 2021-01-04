@@ -50,8 +50,8 @@ public  class ReservacionRepositoryImpl implements ReservacionRepository{
 	}
 
 	public Reservacion getReservacionById(int id) {
-		String Reservacion = Query.selectFromWhere(Query.TABLE_RESERVACION, "CRESERVA", id);
-		List<Reservacion> rsvc = this.row.getReservacionesbyId(this.jdbcTemplate.queryForList(Reservacion));
+		String reservacion = Query.selectFromWhere(Query.TABLE_RESERVACION, "CRESERVA", id);
+		List<Reservacion> rsvc = this.row.getReservacionesbyId(this.jdbcTemplate.queryForList(reservacion));
 		if (!rsvc.isEmpty()) {
 			return rsvc.get(0);
 		}
@@ -94,10 +94,7 @@ public  class ReservacionRepositoryImpl implements ReservacionRepository{
 		String query = 	"UPDATE " + Query.TABLE_RESERVACION +" SET CESTADO = ?  WHERE CRESERVA = ? ";
 		int update = this.jdbcTemplate.update(query, 4 , rv.getCreserva());
 		
-		if(update == 1) {
-			return true;
-		} 
-		return false;
+		return (update == 1);
 	}
 	
 	@Override
@@ -105,10 +102,8 @@ public  class ReservacionRepositoryImpl implements ReservacionRepository{
 		Reservacion rv = getReservacionById(id);
 		String query = 	"UPDATE " + Query.TABLE_RESERVACION + " SET CONFIRMADA = ?  WHERE CRESERVA = ?";
 		int update = this.jdbcTemplate.update(query, 1 , rv.getCreserva());
-		if(update == 1) {
-			return true;
-		} 
-			return false;
+		
+		return (update == 1);
 	}
 
 }

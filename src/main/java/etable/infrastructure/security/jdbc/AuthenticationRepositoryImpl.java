@@ -49,11 +49,11 @@ public class AuthenticationRepositoryImpl implements AuthenticationRepository{
 		List<Map<String, Object>> rows =  jdbcTemplate.queryForList(query, auth.getNickname());
 		authentication = row.mapRow(rows);
 		if(!authentication.isEmpty()) {
-			String nickname_real = authentication.get(0).getNickname();
-			String nickname_auth = auth.getNickname();
-			String password_auth = auth.getPassword();
-			if(nickname_auth.equalsIgnoreCase(nickname_real)) {
-				boolean isPasswordMatches=this.passwordEncoder.matches(password_auth, authentication.get(0).getPassword());
+			String nicknameReal = authentication.get(0).getNickname();
+			String nicknameAuth = auth.getNickname();
+			String passwordAuth = auth.getPassword();
+			if(nicknameAuth.equalsIgnoreCase(nicknameReal)) {
+				boolean isPasswordMatches=this.passwordEncoder.matches(passwordAuth, authentication.get(0).getPassword());
 				if(isPasswordMatches) {
 					auth.setCusuario(authentication.get(0).getCusuario());
 					auth.setNickname(authentication.get(0).getNickname());

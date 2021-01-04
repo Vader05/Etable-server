@@ -22,34 +22,38 @@ public class ConfiguracionRowMapper implements RowMapper{
 			int empcelular = Integer.parseInt(row.get("EMPCELULAR").toString());
 			String emplogo = row.get("EMPLOGO").toString();
 			
-			boolean sist_reservacion_cliente = (Integer.parseInt(row.get("SIST_RESERVACION_CLIENTE").toString()) == 1 ? true: false);
-			boolean sist_atencion_cliente = (Integer.parseInt(row.get("SIST_ATENCION_CLIENTE").toString()) == 1 ? true: false);
-			boolean mesas_compuestas = (Integer.parseInt(row.get("MESAS_COMPUESTAS").toString()) == 1 ? true: false);
-			boolean agregar_cliente_manual = (Integer.parseInt(row.get("AGREGAR_CLIENTE_MANUAL").toString()) == 1 ? true: false);
-			boolean pagos_tarjeta_credito = (Integer.parseInt(row.get("PAGOS_TARJETA_CREDITO").toString()) == 1 ? true: false);
-			boolean reservacion_pedidos = (Integer.parseInt(row.get("RESERVACION_PEDIDOS").toString()) == 1 ? true: false);
-			boolean reservas_especiales = (Integer.parseInt(row.get("RESERVAS_ESPECIALES").toString()) == 1 ? true: false);
-			boolean reservas_no_sesionadas = (Integer.parseInt(row.get("RESERVAS_NO_SESIONADAS").toString()) == 1 ? true: false);
-			String date_configurado = row.get("DATE_CONFIGURADO").toString();
+			boolean sistReservacionCliente = devuelveBooleano(row,"sistReservacionCliente");
+			boolean sistAtencionCliente = devuelveBooleano(row,"sistAtencionCliente");
+			boolean mesasCompuestas = 	devuelveBooleano(row,"mesasCompuestas");
+			boolean agregarClienteManual = devuelveBooleano(row,"agregarClienteManual");
+			boolean pagosTarjetaCredito = devuelveBooleano(row,"pagosTarjetaCredito");
+			boolean reservacionPedidos = devuelveBooleano(row,"reservacionPedidos");
+			boolean reservasEspeciales = devuelveBooleano(row,"reservasEspeciales");
+			boolean reservasNoSesionadas = devuelveBooleano(row,"reservasNoSesionadas");
+			String dateConfigurado = row.get("dateConfigurado").toString();
 			
 			configuracion = new Configuracion(cconfiguracion, cempresa, empnombre, empdescripcion, empdireccion, empemail, empcelular,
-					emplogo, sist_reservacion_cliente, sist_atencion_cliente, mesas_compuestas, agregar_cliente_manual, 
-					pagos_tarjeta_credito, reservacion_pedidos, reservas_especiales, reservas_no_sesionadas, date_configurado);
+					emplogo, sistReservacionCliente, sistAtencionCliente, mesasCompuestas, agregarClienteManual, 
+					pagosTarjetaCredito, reservacionPedidos, reservasEspeciales, reservasNoSesionadas, dateConfigurado);
 		}
 		return configuracion;
+	}
+	
+	public boolean devuelveBooleano(Map<String, Object> row,String nombre) {
+		return (Integer.parseInt(row.get(nombre).toString()) == 1);
 	}
 	
 	public Configuracion mapRowConfigParametros(List<Map<String, Object>> rows) {
 		 Configuracion configuracion = null;
 		 for(Map<String, Object> row: rows) {
-			 int cant_max_mesas = Integer.parseInt(row.get("CANT_MAX_MESAS").toString());
-			 int cant_max_us_registrados = Integer.parseInt(row.get("CANT_MAX_US_REGISTRADOS").toString());
-			 String horario_ini_atencion = row.get("HORARIO_INI_ATENCION").toString();
-			 String horario_fin_atencion = row.get("HORARIO_FIN_ATENCION").toString();
-			 String dias_atencion = row.get("DIAS_ATENCION").toString();
-			 int max_us_trab_conectados = Integer.parseInt(row.get("MAX_US_TRAB_CONECTADOS").toString());
+			 int cantMaxMesas = Integer.parseInt(row.get("cantMaxMesas").toString());
+			 int cantMaxUsRegistrados = Integer.parseInt(row.get("cantMaxUsRegistrados").toString());
+			 String horarioIniAtencion = row.get("horarioIniAtencion").toString();
+			 String horarioFinAtencion = row.get("horarioFinAtencion").toString();
+			 String diasAtencion = row.get("diasAtencion").toString();
+			 int maxUsTrabConectados = Integer.parseInt(row.get("maxUsTrabConectados").toString());
 			 
-			 configuracion = new Configuracion(cant_max_mesas, cant_max_us_registrados, horario_ini_atencion, horario_fin_atencion, dias_atencion, max_us_trab_conectados);
+			 configuracion = new Configuracion(cantMaxMesas, cantMaxUsRegistrados, horarioIniAtencion, horarioFinAtencion, diasAtencion, maxUsTrabConectados);
 		 }
 		 return configuracion;
 	}

@@ -11,23 +11,23 @@ public class Configuracion {
 	private int empcelular;
 	private String emplogo;
 	
-	private boolean sist_reservacion_cliente;
-	private boolean sist_atencion_cliente;
-	private boolean mesas_compuestas;
-	private boolean agregar_cliente_manual;
-	private boolean pagos_tarjeta_credito;
-	private boolean reservacion_pedidos;
-	private boolean reservas_especiales;
-	private boolean reservas_no_sesionadas;
+	private boolean sistReservacionCliente;
+	private boolean sistAtencionCliente;
+	private boolean mesasCompuestas;
+	private boolean agregarClienteManual;
+	private boolean pagosTarjetaCredito;
+	private boolean reservacionPedidos;
+	private boolean reservasEspeciales;
+	private boolean reservasNoSesionadas;
 	
-	private int cant_max_mesas;
-	private int cant_max_us_registrados;
-	private String horario_ini_atencion;
-	private String horario_fin_atencion;
-	private String dias_atencion;
-	private int max_us_trab_conectados;
+	private int cantMaxMesas;
+	private int cantMaxUsRegistrados;
+	private String horarioIniAtencion;
+	private String horarioFinAtencion;
+	private String diasAtencion;
+	private int maxUsTrabConectados;
 	
-	private String date_configurado;
+	private String dateConfigurado;
 	
 	private String imageByte;
 	private String imageName;
@@ -37,9 +37,9 @@ public class Configuracion {
 	}
 	
 	public Configuracion(int cconfiguracion, int cempresa, String empnombre, String empdescripcion, String empdireccion, String empemail,
-			int empcelular, String emplogo, boolean sist_reservacion_cliente, boolean sist_atencion_cliente,
-			boolean mesas_compuestas, boolean agregar_cliente_manual, boolean pagos_tarjeta_credito,
-			boolean reservacion_pedidos, boolean reservas_especiales, boolean reservas_no_sesionadas, String date_configurado) {
+			int empcelular, String emplogo, boolean sistReservacionCliente, boolean sistAtencionCliente,
+			boolean mesasCompuestas, boolean agregarClienteManual, boolean pagosTarjetaCredito,
+			boolean reservacionPedidos, boolean reservasEspeciales, boolean reservasNoSesionadas, String dateConfigurado) {
 		super();
 		this.cconfiguracion = cconfiguracion;
 		this.cempresa = cempresa;
@@ -49,85 +49,85 @@ public class Configuracion {
 		this.empemail = empemail;
 		this.empcelular = empcelular;
 		this.emplogo = emplogo;
-		this.sist_reservacion_cliente = sist_reservacion_cliente;
-		this.sist_atencion_cliente = sist_atencion_cliente;
-		this.mesas_compuestas = mesas_compuestas;
-		this.agregar_cliente_manual = agregar_cliente_manual;
-		this.pagos_tarjeta_credito = pagos_tarjeta_credito;
-		this.reservacion_pedidos = reservacion_pedidos;
-		this.reservas_especiales = reservas_especiales;
-		this.reservas_no_sesionadas = reservas_no_sesionadas;
-		this.date_configurado = date_configurado;
+		this.sistReservacionCliente = sistReservacionCliente;
+		this.sistAtencionCliente = sistAtencionCliente;
+		this.mesasCompuestas = mesasCompuestas;
+		this.agregarClienteManual = agregarClienteManual;
+		this.pagosTarjetaCredito = pagosTarjetaCredito;
+		this.reservacionPedidos = reservacionPedidos;
+		this.reservasEspeciales = reservasEspeciales;
+		this.reservasNoSesionadas = reservasNoSesionadas;
+		this.dateConfigurado = dateConfigurado;
 	}
 	
 	
-	public Configuracion(int cant_max_mesas, int cant_max_us_registrados, String horario_ini_atencion, String horario_fin_atencion,
-			 String dias_atencion, int max_us_trab_conectados) {
+	public Configuracion(int cantMaxMesas, int cantMaxUsRegistrados, String horarioIniAtencion, String horarioFinAtencion,
+			 String diasAtencion, int maxUsTrabConectados) {
 		super();
-		this.cant_max_mesas = cant_max_mesas;
-		this.cant_max_us_registrados = cant_max_us_registrados;
-		this.horario_ini_atencion = horario_ini_atencion;
-		this.horario_fin_atencion = horario_fin_atencion;
-		this.dias_atencion = dias_atencion;
-		this.max_us_trab_conectados = max_us_trab_conectados;
+		this.cantMaxMesas = cantMaxMesas;
+		this.cantMaxUsRegistrados = cantMaxUsRegistrados;
+		this.horarioIniAtencion = horarioIniAtencion;
+		this.horarioFinAtencion = horarioFinAtencion;
+		this.diasAtencion = diasAtencion;
+		this.maxUsTrabConectados = maxUsTrabConectados;
 	}
 
-	public int getCant_max_mesas() {
-		return cant_max_mesas;
+	public int getcantMaxMesas() {
+		return cantMaxMesas;
 	}
 
-	public void setCant_max_mesas(int cant_max_mesas) {
-		this.cant_max_mesas = cant_max_mesas;
+	public void setcantMaxMesas(int cantMaxMesas) {
+		this.cantMaxMesas = cantMaxMesas;
 	}
 
-	public int getCant_max_us_registrados() {
-		return cant_max_us_registrados;
+	public int getcantMaxUsRegistrados() {
+		return cantMaxUsRegistrados;
 	}
 
-	public void setCant_max_us_registrados(int cant_max_us_registrados) {
-		this.cant_max_us_registrados = cant_max_us_registrados;
-	}
-
-
-	public String getHorario_ini_atencion() {
-		return horario_ini_atencion;
-	}
-
-	public void setHorario_ini_atencion(String horario_ini_atencion) {
-		this.horario_ini_atencion = horario_ini_atencion;
-	}
-
-	public String getHorario_fin_atencion() {
-		return horario_fin_atencion;
-	}
-
-	public void setHorario_fin_atencion(String horario_fin_atencion) {
-		this.horario_fin_atencion = horario_fin_atencion;
-	}
-
-	public String getDias_atencion() {
-		return dias_atencion;
-	}
-
-	public void setDias_atencion(String dias_atencion) {
-		this.dias_atencion = dias_atencion;
-	}
-
-	public int getMax_us_trab_conectados() {
-		return max_us_trab_conectados;
-	}
-
-	public void setMax_us_trab_conectados(int max_us_trab_conectados) {
-		this.max_us_trab_conectados = max_us_trab_conectados;
+	public void setcantMaxUsRegistrados(int cantMaxUsRegistrados) {
+		this.cantMaxUsRegistrados = cantMaxUsRegistrados;
 	}
 
 
-	public String getDate_configurado() {
-		return date_configurado;
+	public String gethorarioIniAtencion() {
+		return horarioIniAtencion;
 	}
 
-	public void setDate_configurado(String date_configurado) {
-		this.date_configurado = date_configurado;
+	public void sethorarioIniAtencion(String horarioIniAtencion) {
+		this.horarioIniAtencion = horarioIniAtencion;
+	}
+
+	public String gethorarioFinAtencion() {
+		return horarioFinAtencion;
+	}
+
+	public void sethorarioFinAtencion(String horarioFinAtencion) {
+		this.horarioFinAtencion = horarioFinAtencion;
+	}
+
+	public String getdiasAtencion() {
+		return diasAtencion;
+	}
+
+	public void setdiasAtencion(String diasAtencion) {
+		this.diasAtencion = diasAtencion;
+	}
+
+	public int getmaxUsTrabConectados() {
+		return maxUsTrabConectados;
+	}
+
+	public void setmaxUsTrabConectados(int maxUsTrabConectados) {
+		this.maxUsTrabConectados = maxUsTrabConectados;
+	}
+
+
+	public String getdateConfigurado() {
+		return dateConfigurado;
+	}
+
+	public void setdateConfigurado(String dateConfigurado) {
+		this.dateConfigurado = dateConfigurado;
 	}
 
 	public String getEmpdireccion() {
@@ -180,53 +180,53 @@ public class Configuracion {
 	public void setEmplogo(String emplogo) {
 		this.emplogo = emplogo;
 	}
-	public boolean isSist_reservacion_cliente() {
-		return sist_reservacion_cliente;
+	public boolean issistReservacionCliente() {
+		return sistReservacionCliente;
 	}
-	public void setSist_reservacion_cliente(boolean sist_reservacion_cliente) {
-		this.sist_reservacion_cliente = sist_reservacion_cliente;
+	public void setsistReservacionCliente(boolean sistReservacionCliente) {
+		this.sistReservacionCliente = sistReservacionCliente;
 	}
-	public boolean isSist_atencion_cliente() {
-		return sist_atencion_cliente;
+	public boolean issistAtencionCliente() {
+		return sistAtencionCliente;
 	}
-	public void setSist_atencion_cliente(boolean sist_atencion_cliente) {
-		this.sist_atencion_cliente = sist_atencion_cliente;
+	public void setsistAtencionCliente(boolean sistAtencionCliente) {
+		this.sistAtencionCliente = sistAtencionCliente;
 	}
-	public boolean isMesas_compuestas() {
-		return mesas_compuestas;
+	public boolean ismesasCompuestas() {
+		return mesasCompuestas;
 	}
-	public void setMesas_compuestas(boolean mesas_compuestas) {
-		this.mesas_compuestas = mesas_compuestas;
+	public void setmesasCompuestas(boolean mesasCompuestas) {
+		this.mesasCompuestas = mesasCompuestas;
 	}
-	public boolean isAgregar_cliente_manual() {
-		return agregar_cliente_manual;
+	public boolean isagregarClienteManual() {
+		return agregarClienteManual;
 	}
-	public void setAgregar_cliente_manual(boolean agregar_cliente_manual) {
-		this.agregar_cliente_manual = agregar_cliente_manual;
+	public void setagregarClienteManual(boolean agregarClienteManual) {
+		this.agregarClienteManual = agregarClienteManual;
 	}
-	public boolean isPagos_tarjeta_credito() {
-		return pagos_tarjeta_credito;
+	public boolean ispagosTarjetaCredito() {
+		return pagosTarjetaCredito;
 	}
-	public void setPagos_tarjeta_credito(boolean pagos_tarjeta_credito) {
-		this.pagos_tarjeta_credito = pagos_tarjeta_credito;
+	public void setpagosTarjetaCredito(boolean pagosTarjetaCredito) {
+		this.pagosTarjetaCredito = pagosTarjetaCredito;
 	}
-	public boolean isReservacion_pedidos() {
-		return reservacion_pedidos;
+	public boolean isreservacionPedidos() {
+		return reservacionPedidos;
 	}
-	public void setReservacion_pedidos(boolean reservacion_pedidos) {
-		this.reservacion_pedidos = reservacion_pedidos;
+	public void setreservacionPedidos(boolean reservacionPedidos) {
+		this.reservacionPedidos = reservacionPedidos;
 	}
-	public boolean isReservas_especiales() {
-		return reservas_especiales;
+	public boolean isreservasEspeciales() {
+		return reservasEspeciales;
 	}
-	public void setReservas_especiales(boolean reservas_especiales) {
-		this.reservas_especiales = reservas_especiales;
+	public void setreservasEspeciales(boolean reservasEspeciales) {
+		this.reservasEspeciales = reservasEspeciales;
 	}
-	public boolean isReservas_no_sesionadas() {
-		return reservas_no_sesionadas;
+	public boolean isreservasNoSesionadas() {
+		return reservasNoSesionadas;
 	}
-	public void setReservas_no_sesionadas(boolean reservas_no_sesionadas) {
-		this.reservas_no_sesionadas = reservas_no_sesionadas;
+	public void setreservasNoSesionadas(boolean reservasNoSesionadas) {
+		this.reservasNoSesionadas = reservasNoSesionadas;
 	}
 
 	public String getImageByte() {

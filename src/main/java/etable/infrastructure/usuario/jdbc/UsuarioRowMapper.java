@@ -33,7 +33,7 @@ public class UsuarioRowMapper {
 			int ctipousuario = Integer.parseInt(row.get("CTIPOUSUARIO").toString()); 
 			String usnombres = row.get(USNOMBRE).toString();
 			String usapellidos = row.get(USAPELLIDOS).toString();
-			boolean estado = Integer.parseInt(row.get(ESTADO).toString()) == 1 ? true : false;
+			boolean estado = Integer.parseInt(row.get(ESTADO).toString()) == 1 ;
 			User user = User.getInstancia(cusuario, nickname, password, usnombres, usapellidos, estado, ctipousuario);
 			users.add(user);
 		}
@@ -50,7 +50,7 @@ public class UsuarioRowMapper {
 			String usnombres = row.get(USNOMBRE).toString();
 			String usapellidos = row.get(USAPELLIDOS).toString();
 			String password = row.get("PASSWORD").toString();
-			boolean estado = Integer.parseInt(row.get(ESTADO).toString()) == 1 ? true : false;
+			boolean estado = Integer.parseInt(row.get(ESTADO).toString()) == 1 ;
 			User user = User.getInstancia(cusuario, nickname, password, usnombres, usapellidos, estado, ctipousuario);
 			users.add(user);
 		}
@@ -66,7 +66,7 @@ public class UsuarioRowMapper {
 			String tiponombre = row.get("TIPONOMBRE").toString(); 
 			String usnombres = row.get(USNOMBRE).toString();
 			String usapellidos = row.get(USAPELLIDOS).toString();
-			boolean estado = Integer.parseInt(row.get(ESTADO).toString()) == 1 ? true : false;
+			boolean estado = Integer.parseInt(row.get(ESTADO).toString()) == 1;
 			UserDTO user = new UserDTO(cusuario, nickname, usnombres, usapellidos, estado, tiponombre);
 			users.add(user);
 		}
@@ -103,7 +103,7 @@ public class UsuarioRowMapper {
 			String email = row.get("EMAIL").toString();
 			String phone = row.get("PHONE").toString();
 			String date = row.get("DATE").toString();
-			boolean estado = Integer.parseInt(row.get(ESTADO).toString()) == 1 ? true : false;
+			boolean estado = Integer.parseInt(row.get(ESTADO).toString()) == 1 ;
 			ClienteDTO cliente = new ClienteDTO(ccliente, dni, usnombre, usapellidos, cusuario, email, phone, date, estado, nickname, password);
 			clientes.add(cliente);
 		}

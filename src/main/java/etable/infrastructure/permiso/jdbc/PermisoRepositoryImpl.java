@@ -57,8 +57,9 @@ public class PermisoRepositoryImpl implements PermisoRepository {
 		String query = Query.selectFromWhere(Query.TABLE_PERMISOS, "CPERMISO", cpermiso);
 		List<Map<String, Object>> rows = this.jdbctemplate.queryForList(query);
 		List<Permiso> permisos = this.row.mapRowPermisos(rows);
+		Permiso permiso;
 		if(permisos != null && !permisos.isEmpty()) {
-			Permiso permiso = permisos.get(0);
+			permiso = permisos.get(0);
 			return permiso;
 		}
 		return null;

@@ -22,7 +22,7 @@ public class PermisoRowMapper implements RowMapper{
 			int csubitem = Integer.parseInt(row.get("CSUBITEM").toString());
 			String permiso = row.get("PERMISO").toString();
 			String descripcion = row.get("DESCRIPCION").toString();
-			boolean estado = Integer.parseInt(row.get("ESTADO").toString()) == 1 ? true : false;
+			boolean estado = Integer.parseInt(row.get("ESTADO").toString()) == 1;
 			
 			Permiso p = new Permiso(cpermiso, csubitem, permiso, descripcion, estado);
 			permisos.add(p);

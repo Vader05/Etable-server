@@ -27,6 +27,8 @@ import etable.web.constants.querys.Query;
 public class UsuarioRepositoryImpl implements UserRepository{
 
 	final Logger log = LoggerFactory.getLogger(this.getClass());
+	
+	private String update = "UPDATE ";
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -129,13 +131,13 @@ public class UsuarioRepositoryImpl implements UserRepository{
 		String updateUser = "";
 		int success = 0;
 		if (user.getPassword().equals(passwordBefore)) {
-			updateUser = "UPDATE " + Query.TABLE_USUARIOS + " SET CTIPOUSUARIO = ?, NICKNAME = ?, USAPELLIDOS = ?, USNOMBRE = ?, ESTADO = ? WHERE CUSUARIO = ?";
+			updateUser = update + Query.TABLE_USUARIOS + " SET CTIPOUSUARIO = ?, NICKNAME = ?, USAPELLIDOS = ?, USNOMBRE = ?, ESTADO = ? WHERE CUSUARIO = ?";
 			success = this.jdbcTemplate.update(
 					updateUser, 
 					user.getCtipousuario(), user.getNickname(), user.getUsapellidos(), user.getUsnombres(), user.isEstado() ? 1 : 0, user.getCusuario());
 			
 		} else {
-			updateUser = "UPDATE " + Query.TABLE_USUARIOS + " SET CTIPOUSUARIO = ?, NICKNAME = ?, PASSWORD = ?, USAPELLIDOS = ?, USNOMBRE = ?, ESTADO = ? WHERE CUSUARIO = ?";
+			updateUser = update + Query.TABLE_USUARIOS + " SET CTIPOUSUARIO = ?, NICKNAME = ?, PASSWORD = ?, USAPELLIDOS = ?, USNOMBRE = ?, ESTADO = ? WHERE CUSUARIO = ?";
 			String passwordHash = this.passwordEncoder.encode(user.getPassword());
 			success = this.jdbcTemplate.update(
 					updateUser, 
@@ -159,10 +161,8 @@ public class UsuarioRepositoryImpl implements UserRepository{
 	public boolean deleteUser(int id) {
 		String delete = "DELETE FROM " +Query.TABLE_USUARIOS + " WHERE CUSUARIO = ?";
 		int success = this.jdbcTemplate.update(delete, id);
-		if (success == 1) {
-			return true;
-		}
-		return false;
+		
+		return (success == 1);
 	}
 
 
@@ -190,7 +190,7 @@ public class UsuarioRepositoryImpl implements UserRepository{
 		Cliente aux = this.getClienteByUserId(cliente.getCusuario());
 		if (aux != null) {
 			log.info("Actualiza");
-			String editCliente = "UPDATE " + Query.TABLE_CLIENTES + " SET DNI = ?, EMAIL = ?, PHONE = ?, DATE = ? WHERE CUSUARIO = ?";
+			String editCliente = update + Query.TABLE_CLIENTES + " SET DNI = ?, EMAIL = ?, PHONE = ?, DATE = ? WHERE CUSUARIO = ?";
 			int success = this.jdbcTemplate.update(editCliente, cliente.getDni(), cliente.getEmail(), cliente.getPhone(), cliente.getDate(), cliente.getCusuario());
 			if (success == 1) {
 				return cliente;

@@ -49,11 +49,8 @@ public class PerfilMesaRepositoryImpl implements PerfilMesaRepository {
 		String query = "DELETE FROM " + Query.TABLE_PERFILMESA + " WHERE CPERFILMESA = ?";
 
 		int success = this.jdbcTemplate.update(query, id);
-		if (success >= 0) {
-			return true;
-		}
-		return false;
-
+		
+		return (success >= 0);
 	}
 
 	@Override

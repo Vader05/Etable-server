@@ -53,10 +53,7 @@ public class MesaRepositoryImpl implements MesaRepository{
 	public boolean  eliminarMesaById(int id) {
 		String query = 	"DELETE FROM " + Query.TABLE_MESA +" WHERE CMESA = ?";
 		int success = this.jdbcTemplate.update(query, id);
-		if (success >= 0) {
-			return true;
-		}
-		return false;
+		return (success >= 0);
 	}
 
 	@Override

@@ -49,15 +49,15 @@ public class ConfiguracionRepositoryImpl implements ConfiguracionRepository {
 						configuracion.getEmpnombre(), configuracion.getEmpdireccion(),
 						configuracion.getEmpdescripcion(), configuracion.getEmpemail(),
 						configuracion.getEmpcelular(), configuracion.getEmplogo(),
-						configuracion.isSist_reservacion_cliente() ? 1 : 0,
-						configuracion.isSist_atencion_cliente() ? 1 : 0,
-						configuracion.isMesas_compuestas() ? 1 : 0,
-						configuracion.isAgregar_cliente_manual() ? 1 : 0,
-						configuracion.isPagos_tarjeta_credito() ? 1 : 0,
-						configuracion.isReservacion_pedidos() ? 1 : 0,
-						configuracion.isReservas_especiales() ? 1 : 0,
-						configuracion.isReservas_no_sesionadas() ? 1 : 0,
-						configuracion.getDate_configurado(),
+						configuracion.issistReservacionCliente() ? 1 : 0,
+						configuracion.issistAtencionCliente() ? 1 : 0,
+						configuracion.ismesasCompuestas() ? 1 : 0,
+						configuracion.isagregarClienteManual() ? 1 : 0,
+						configuracion.ispagosTarjetaCredito() ? 1 : 0,
+						configuracion.isreservacionPedidos() ? 1 : 0,
+						configuracion.isreservasEspeciales() ? 1 : 0,
+						configuracion.isreservasNoSesionadas() ? 1 : 0,
+						configuracion.getdateConfigurado(),
 						configuracion.getCconfiguracion());
 		
 		if(update == 1) {
@@ -70,8 +70,8 @@ public class ConfiguracionRepositoryImpl implements ConfiguracionRepository {
 	@Override
 	public Configuracion actualizarParametrosById(Configuracion configuracion) {
 		String query = Query.UPDATE_PARAMETROS;
-		int update = this.jdbcTemplate.update(query, configuracion.getCant_max_mesas(), configuracion.getCant_max_us_registrados(), configuracion.getHorario_ini_atencion(), 
-				configuracion.getHorario_fin_atencion(), configuracion.getDias_atencion(), configuracion.getMax_us_trab_conectados());
+		int update = this.jdbcTemplate.update(query, configuracion.getcantMaxMesas(), configuracion.getcantMaxUsRegistrados(), configuracion.gethorarioIniAtencion(), 
+				configuracion.gethorarioFinAtencion(), configuracion.getdiasAtencion(), configuracion.getmaxUsTrabConectados());
 		if( update == 1) {
 			return configuracion;
 		} else {
