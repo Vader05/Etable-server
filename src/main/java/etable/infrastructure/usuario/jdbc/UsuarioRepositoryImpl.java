@@ -190,8 +190,7 @@ public class UsuarioRepositoryImpl implements UserRepository{
 		Cliente aux = this.getClienteByUserId(cliente.getCusuario());
 		if (aux != null) {
 			log.info("Actualiza");
-			String editCliente = update + Query.TABLE_CLIENTES + " SET DNI = ?, EMAIL = ?, PHONE = ?, DATE = ? WHERE CUSUARIO = ?";
-			int success = this.jdbcTemplate.update(editCliente, cliente.getDni(), cliente.getEmail(), cliente.getPhone(), cliente.getDate(), cliente.getCusuario());
+			int success = this.jdbcTemplate.update(Query.UPDATE_CLIENTE , cliente.getDni(), cliente.getEmail(), cliente.getPhone(), cliente.getDate(), cliente.getCusuario());
 			if (success == 1) {
 				return cliente;
 			} else {

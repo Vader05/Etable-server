@@ -8,8 +8,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +17,7 @@ import etable.domain.tipousuario.model.TipoUsuario;
 import etable.domain.tipousuario.model.TipoUsuarioPermiso;
 import etable.domain.tipousuario.repository.UsuariosRepository;
 import etable.web.constants.querys.Query;
+import etable.web.constants.querys.UserQuery;
 
 @Component
 public class UsuariosRepositoryImpl implements UsuariosRepository{
@@ -24,7 +25,6 @@ public class UsuariosRepositoryImpl implements UsuariosRepository{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	private String delete = "DELETE FROM ";
 	
 	@Autowired
 	private UsuariosRowMapper row;
@@ -123,8 +123,7 @@ public class UsuariosRepositoryImpl implements UsuariosRepository{
 	@Override
 	public boolean eliminarTipoUsuarioById(TipoUsuario tipousuario) {
 		if (this.eliminarPermisosDeTipoUsuarioById(tipousuario.getCtipousuario())) {
-			String query = delete + Query.TABLE_TIPOUSUARIO + " WHERE CTIPOUSUARIO = ? ";
-			int success = this.jdbcTemplate.update(query, tipousuario.getCtipousuario());
+			int success = this.jdbcTemplate.update(UserQuery.DELETE_TIPOBYID, tipousuario.getCtipousuario());
 			if (success != 0) {
 				return true;
 			}
@@ -134,16 +133,13 @@ public class UsuariosRepositoryImpl implements UsuariosRepository{
 
 	@Override
 	public boolean eliminarPermisosDeTipoUsuarioById(int id) {
-		String query = delete + Query.TABLE_TIPOUSPERMISO + " WHERE CTIPOUSUARIO = ?";
-		int success = this.jdbcTemplate.update(query, id);
-		
+		int success = this.jdbcTemplate.update(UserQuery.DELETE_PERMISOTIPOBYID, id);
 		return (success>=0);
 	}
 
 	@Override
 	public boolean removerPermisos(List<TipoUsuarioPermiso> tipouspermisos) {
-		String query = delete + Query.TABLE_TIPOUSPERMISO + " WHERE CTIPOUSPERMISO = ?";
-		tipouspermisos.forEach(o -> this.jdbcTemplate.update(query, o.getCtipouspermiso()));
+		tipouspermisos.forEach(o -> this.jdbcTemplate.update(UserQuery.DELETE_REMOVEPERMISO , o.getCtipouspermiso()));
 		return true;
 	}
 
