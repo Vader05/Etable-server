@@ -42,11 +42,17 @@ public class UserTest {
 	@Test
 	public void getCliente() {
 		List<ClienteDTO> clientes= usuarioService.getClientes();
-		Assertions.assertThat(clientes.size()).isEqualTo(1);
+		Assertions.assertThat(clientes.size()).isPositive();
 	}
 	
 	@Test
-	public void getClienteById() {
+	public void comprobarGetClienteById() {
+		ClienteDTO cliente = usuarioService.getClienteById(1);
+		Assertions.assertThat(cliente).isNotNull();
+	}
+	
+	@Test
+	public void getClienteByUserId() {
 		Cliente clientebd =new Cliente(1,77343939,3,"red1rc2@gmail.com","955502272","1999-04-05");
 		Cliente cliente = usuarioService.getClienteByUserId(3);
 		Assertions.assertThat(cliente.getPhone()).isEqualTo(clientebd.getPhone());

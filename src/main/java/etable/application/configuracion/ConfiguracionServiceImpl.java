@@ -28,7 +28,6 @@ public class ConfiguracionServiceImpl implements ConfiguracionService{
 		return this.repository.getParametrosGenerales();
 	}
 	
-	
 	public Configuracion actualizarParametrosById(Configuracion configuracion) {
 		return this.repository.actualizarParametrosById(configuracion);
 	}
