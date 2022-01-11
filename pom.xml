@@ -5,7 +5,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	<groupId>pe.com.etable</groupId>
 	<artifactId>reservaciones</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>reservaciones</name>
 
 	<!-- Spring Boot 1.5.9 -->
