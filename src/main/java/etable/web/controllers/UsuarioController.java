@@ -23,7 +23,7 @@ import etable.domain.cliente.model.ClienteDTO;
 import etable.domain.user.model.User;
 import etable.domain.user.model.UserDTO;
 
-@CrossOrigin(origins = "localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/api/user"})
 public class UsuarioController {

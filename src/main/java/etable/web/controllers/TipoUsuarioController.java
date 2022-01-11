@@ -17,7 +17,7 @@ import etable.application.tipousuario.TipoUsuarioService;
 import etable.domain.tipousuario.model.TipoUsuario;
 import etable.domain.tipousuario.model.TipoUsuarioPermiso;
 
-@CrossOrigin(origins = "localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/api/usuarios"})
 public class TipoUsuarioController {

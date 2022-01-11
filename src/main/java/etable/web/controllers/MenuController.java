@@ -13,7 +13,7 @@ import etable.application.menu.MenuService;
 import etable.domain.menu.model.Item;
 import etable.domain.menu.model.SubItem;
 
-@CrossOrigin(origins = "localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/api/mainMenu"})
 public class MenuController {

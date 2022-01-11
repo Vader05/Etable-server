@@ -20,7 +20,7 @@ import etable.domain.configuracion.model.Image;
  *
  */
 
-@CrossOrigin(origins = "localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/api/configuracion"})
 public class ConfiguracionController {

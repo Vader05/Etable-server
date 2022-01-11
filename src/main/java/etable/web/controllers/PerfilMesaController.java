@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import etable.application.mesa.PerfilMesaService;
 import etable.domain.mesa.model.PerfilMesa;
 
-@CrossOrigin(origins = "localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/api/perfilMesa"})
 public class PerfilMesaController {

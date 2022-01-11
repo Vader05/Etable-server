@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import etable.application.security.AuthenticationService;
 import etable.domain.security.model.Authentication;
 
-@CrossOrigin(origins = "localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/api/authentication"})
 public class AuthenticationController {
